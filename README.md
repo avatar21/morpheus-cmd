@@ -4,6 +4,9 @@ Morpheus Commander
 Introduction
 ------------
 
+![alt screenshot](src/main/resources/morpheus-commander-1.0-SNAPSHOT-screenshot.png "ScreenShot")
+
+
 Morpheus Commander is a (roughly) [VT100](http://en.wikipedia.org/wiki/VT100)-compatible
 terminal emulator for Swing-based Java applications.
 

@@ -39,7 +39,7 @@ public class SimpleTerminal implements KeyListener, FocusListener, MouseListener
         infoTermOutStream = new TerminalOutputStream(term);
         errorTermOutStream = new TerminalErrorOutputStream(term);
 
-        JFrame frame = new JFrame("Testing");
+        JFrame frame = new JFrame("Morpheus Commander");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
         frame.add(term);
@@ -48,7 +48,7 @@ public class SimpleTerminal implements KeyListener, FocusListener, MouseListener
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
-        term.println("Welcome to Simple Terminal");
+        term.println("=== Morpheus Commander ===");
         term.print(TERM);
         term.addKeyListener(this);
         term.addFocusListener(this);
