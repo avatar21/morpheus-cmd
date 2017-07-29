@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2009-2011 Graham Edgecombe.
+ * Copyright (c) 2017-2018 Avatar Ng.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to
@@ -20,22 +20,22 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-package com.grahamedgecombe.jterminal.vt100;
+package net.minfaatong.morpheusCmd.vt100;
 
 import static org.junit.Assert.*;
 
 import java.awt.Color;
 
+import net.minfaatong.morpheusCmd.TerminalCell;
+import net.minfaatong.morpheusCmd.TerminalModel;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.grahamedgecombe.jterminal.TerminalCell;
-import com.grahamedgecombe.jterminal.TerminalModel;
-import com.grahamedgecombe.jterminal.bell.BellStrategy;
+import net.minfaatong.morpheusCmd.bell.BellStrategy;
 
 /**
  * A test for the {@link Vt100TerminalModel} class.
- * @author Graham Edgecombe
+ * @author Avatar Ng
  */
 public class TestVt100TerminalModel {
 
@@ -211,7 +211,7 @@ public class TestVt100TerminalModel {
 		BellStrategy strategy = new BellStrategy() {
 			/*
 			 * (non-Javadoc)
-			 * @see com.grahamedgecombe.jterminal.bell.BellStrategy#soundBell()
+			 * @see BellStrategy#soundBell()
 			 */
 			@Override
 			public void soundBell() {

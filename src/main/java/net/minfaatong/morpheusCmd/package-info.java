@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2009-2011 Graham Edgecombe.
+ * Copyright (c) 2017-2018 Avatar Ng.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to
@@ -20,18 +20,8 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-package com.grahamedgecombe.jterminal.bell;
-
 /**
- * A 'strategy' used to sound the bell (US-ASCII character {@code 7}).
- * @author Graham Edgecombe
+ * Contains core JTerminal classes.
  */
-public interface BellStrategy {
-
-	/**
-	 * Sounds the bell.
-	 */
-	public void soundBell();
-
-}
+package net.minfaatong.morpheusCmd;
 

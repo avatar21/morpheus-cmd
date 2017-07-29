@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2009-2011 Graham Edgecombe.
+ * Copyright (c) 2017-2018 Avatar Ng.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to
@@ -20,30 +20,25 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-package com.grahamedgecombe.jterminal;
+package net.minfaatong.morpheusCmd;
 
 import java.awt.*;
 import java.awt.event.AdjustmentEvent;
 import java.awt.event.AdjustmentListener;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Logger;
 
 import javax.swing.*;
 
-import com.grahamedgecombe.jterminal.vt100.Vt100TerminalModel;
-
-import static com.grahamedgecombe.jterminal.vt100.Vt100TerminalModel.DEFAULT_FOREGROUND_COLOR;
+import net.minfaatong.morpheusCmd.vt100.Vt100TerminalModel;
 
 /**
  * A Swing terminal emulation component.
- * @author Graham Edgecombe
+ * @author Avatar Ng
  */
 public class JTerminal extends JComponent {
 
 	/**
 	 * The component that actually draws the terminal.
-	 * @author Graham Edgecombe
+	 * @author Avatar Ng
 	 */
 	private class Terminal extends JComponent {
 

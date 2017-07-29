@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2009-2011 Graham Edgecombe.
+ * Copyright (c) 2017-2018 Avatar Ng.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to
@@ -20,11 +20,11 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-package com.grahamedgecombe.jterminal.vt100;
+package net.minfaatong.morpheusCmd.vt100;
 
 /**
  * Represents an ANSI control sequence.
- * @author Graham Edgecombe
+ * @author Avatar Ng
  */
 class AnsiControlSequence {
 

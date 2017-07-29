@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2009-2011 Graham Edgecombe.
+ * Copyright (c) 2017-2018 Avatar Ng.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to
@@ -21,7 +21,7 @@
  */
 
 /**
- * Contains core JTerminal classes.
+ * Contains a terminal model roughly compatible with the VT100/ANSI standard.
  */
-package com.grahamedgecombe.jterminal;
+package net.minfaatong.morpheusCmd.vt100;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2009-2011 Graham Edgecombe.
+ * Copyright (c) 2017-2018 Avatar Ng.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to
@@ -20,9 +20,25 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
+package net.minfaatong.morpheusCmd.vt100;
+
 /**
- * Contains bell strategy classes, which define how an application should
- * respond to the US-ASCII {@code BEL} character.
+ * An interface which classes may use to listen to events from a
+ * {@link AnsiControlSequenceParser}.
  */
-package com.grahamedgecombe.jterminal.bell;
+interface AnsiControlSequenceListener {
+
+	/**
+	 * Called when a control sequence has been parsed.
+	 * @param seq The control sequence.
+	 */
+	public void parsedControlSequence(AnsiControlSequence seq);
+
+	/**
+	 * Called when a string has been parsed.
+	 * @param str The string.
+	 */
+	public void parsedString(String str);
+
+}
 

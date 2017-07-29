@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2009-2011 Graham Edgecombe.
+ * Copyright (c) 2017-2018 Avatar Ng.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to
@@ -20,50 +20,17 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-package com.grahamedgecombe.jterminal.vt100;
-
-import java.awt.Color;
+package net.minfaatong.morpheusCmd.bell;
 
 /**
- * Contains colors used by the SGR ANSI escape sequence.
+ * A {@link BellStrategy} which does nothing.
  * @author Graham Edgecombe
  */
-final class SgrColor {
+public class NopBellStrategy implements BellStrategy {
 
-	/**
-	 * An array of normal intensity colors.
-	 */
-	public static final Color[] COLOR_NORMAL = new Color[] {
-		new Color(0, 0, 0),
-		new Color(128, 0, 0),
-		new Color(0, 128, 0),
-		new Color(128, 128, 0),
-		new Color(0, 0, 128),
-		new Color(128, 0, 128),
-		new Color(0, 128, 128),
-		new Color(192, 192, 192)
-	};
-
-	/**
-	 * An array of bright intensity colors.
-	 */
-	public static final Color[] COLOR_BRIGHT = new Color[] {
-		new Color(128, 128, 128),
-		new Color(255, 0, 0),
-		new Color(0, 255, 0),
-		new Color(255, 255, 0),
-		new Color(0, 0, 255),
-		new Color(0, 0, 255),
-		new Color(255, 0, 255),
-		new Color(0, 255, 255),
-		new Color(255, 255, 255)
-	};
-
-	/**
-	 * Default private constructor to prevent instantiation.
-	 */
-	private SgrColor() {
-
+	@Override
+	public void soundBell() {
+		/* ignore */
 	}
 
 }

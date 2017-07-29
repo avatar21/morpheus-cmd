@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2009-2011 Graham Edgecombe.
+ * Copyright (c) 2017-2018 Avatar Ng.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to
@@ -20,26 +20,26 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-package com.grahamedgecombe.jterminal.vt100;
+package net.minfaatong.morpheusCmd.vt100;
 
 import java.awt.Color;
 
-import com.grahamedgecombe.jterminal.AbstractTerminalModel;
-import com.grahamedgecombe.jterminal.TerminalCell;
-import com.grahamedgecombe.jterminal.TerminalModel;
-import com.grahamedgecombe.jterminal.bell.BellStrategy;
-import com.grahamedgecombe.jterminal.bell.NopBellStrategy;
+import net.minfaatong.morpheusCmd.AbstractTerminalModel;
+import net.minfaatong.morpheusCmd.TerminalCell;
+import net.minfaatong.morpheusCmd.TerminalModel;
+import net.minfaatong.morpheusCmd.bell.BellStrategy;
+import net.minfaatong.morpheusCmd.bell.NopBellStrategy;
 
 /**
  * A VT100/ANSI-compatible terminal model.
- * @author Graham Edgecombe
+ * @author Avatar Ng
  */
 public class Vt100TerminalModel extends AbstractTerminalModel {
 
 	/**
 	 * A {@link AnsiControlSequenceListener} which modifies the
 	 * {@link TerminalModel} appropriately when an event happens.
-	 * @author Graham Edgecombe
+	 * @author Avatar Ng
 	 */
 	private class Vt100Listener implements AnsiControlSequenceListener {
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2009-2011 Graham Edgecombe.
+ * Copyright (c) 2017-2018 Avatar Ng.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to
@@ -20,11 +20,11 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-package com.grahamedgecombe.jterminal;
+package net.minfaatong.morpheusCmd;
 
 import java.awt.Color;
 
-import com.grahamedgecombe.jterminal.bell.BellStrategy;
+import net.minfaatong.morpheusCmd.bell.BellStrategy;
 
 /**
  * Model for terminals - defines methods for getting/setting cells, printing

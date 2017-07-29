@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2009-2011 Graham Edgecombe.
+ * Copyright (c) 2017-2018 Avatar Ng.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to
@@ -20,20 +20,18 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-package com.grahamedgecombe.jterminal.bell;
-
-import java.awt.Toolkit;
+package net.minfaatong.morpheusCmd.bell;
 
 /**
- * A {@link BellStrategy} which calls {@link Toolkit#beep()}.
+ * A 'strategy' used to sound the bell (US-ASCII character {@code 7}).
  * @author Graham Edgecombe
  */
-public class BeepBellStrategy implements BellStrategy {
+public interface BellStrategy {
 
-	@Override
-	public void soundBell() {
-		Toolkit.getDefaultToolkit().beep();
-	}
+	/**
+	 * Sounds the bell.
+	 */
+	public void soundBell();
 
 }
 

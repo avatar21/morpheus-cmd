@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2009-2011 Graham Edgecombe.
+ * Copyright (c) 2017-2018 Avatar Ng.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to
@@ -20,25 +20,35 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-package com.grahamedgecombe.jterminal.vt100;
+package net.minfaatong.morpheusCmd;
+
+import java.awt.event.KeyEvent;
+import java.io.IOException;
+import java.io.OutputStream;
 
 /**
- * An interface which classes may use to listen to events from a
- * {@link AnsiControlSequenceParser}.
+ * Terminal output stream
+ * @author Avatar Ng
  */
-interface AnsiControlSequenceListener {
+public class TerminalOutputStream extends OutputStream {
+    private JTerminal terminal;
+    private StringBuffer sbWord = new StringBuffer();
 
-	/**
-	 * Called when a control sequence has been parsed.
-	 * @param seq The control sequence.
-	 */
-	public void parsedControlSequence(AnsiControlSequence seq);
+    public TerminalOutputStream(JTerminal terminal) {
+        super();
+        this.terminal = terminal;
+    }
 
-	/**
-	 * Called when a string has been parsed.
-	 * @param str The string.
-	 */
-	public void parsedString(String str);
-
+    @Override
+    public synchronized void write(int b) throws IOException {
+        if (b == KeyEvent.VK_ENTER) {
+            terminal.println("");
+            terminal.print(String.format("I %s", sbWord.toString()));
+            sbWord.setLength(0);
+            sbWord.trimToSize();
+        } else {
+            sbWord.append((char) b);
+            //terminal.print( Character.toString((char) b));
+        }
+    }
 }
-
