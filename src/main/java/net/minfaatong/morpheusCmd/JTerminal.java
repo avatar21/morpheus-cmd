@@ -22,13 +22,12 @@
 
 package net.minfaatong.morpheusCmd;
 
+import net.minfaatong.morpheusCmd.vt100.Vt100TerminalModel;
+
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.AdjustmentEvent;
 import java.awt.event.AdjustmentListener;
-
-import javax.swing.*;
-
-import net.minfaatong.morpheusCmd.vt100.Vt100TerminalModel;
 
 /**
  * A Swing terminal emulation component.
@@ -219,6 +218,33 @@ public class JTerminal extends JComponent {
 	public void print(String str) {
 		setForeground(Color.LIGHT_GRAY);
 		model.print(str);
+		repaint();
+	}
+
+	/**
+	 * delete last character, move cursor backward
+	 */
+	public void backspace() {
+		setForeground(Color.LIGHT_GRAY);
+		model.moveCursorBack(1);
+		repaint();
+	}
+
+	/**
+	 * move cursor backward
+	 */
+	public void moveCursorBack(int n) {
+		setForeground(Color.LIGHT_GRAY);
+		model.moveCursorBack(n);
+		repaint();
+	}
+
+	/**
+	 * move cursor forward
+	 */
+	public void moveCursorForward(int n) {
+		setForeground(Color.LIGHT_GRAY);
+		model.moveCursorForward(n);
 		repaint();
 	}
 

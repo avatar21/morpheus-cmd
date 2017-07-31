@@ -23,16 +23,19 @@
 package net.minfaatong.morpheusCmd;
 
 import java.awt.event.KeyEvent;
-import java.io.IOException;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
+import java.nio.ByteBuffer;
+import java.util.logging.Logger;
 
 /**
  * Terminal output stream
  * @author Avatar Ng
  */
 public class TerminalOutputStream extends OutputStream {
+    private static final Logger logger = Logger.getLogger(TerminalOutputStream.class.getCanonicalName());
     private JTerminal terminal;
-    private StringBuffer sbWord = new StringBuffer();
+    private ByteBuffer bytes = ByteBuffer.allocate(2048);
 
     public TerminalOutputStream(JTerminal terminal) {
         super();
@@ -40,15 +43,24 @@ public class TerminalOutputStream extends OutputStream {
     }
 
     @Override
-    public synchronized void write(int b) throws IOException {
-        if (b == KeyEvent.VK_ENTER) {
-            terminal.println("");
-            terminal.print(String.format("I %s", sbWord.toString()));
-            sbWord.setLength(0);
-            sbWord.trimToSize();
-        } else {
-            sbWord.append((char) b);
-            //terminal.print( Character.toString((char) b));
+    public synchronized void write(int b) {
+        try {
+            if (b == KeyEvent.VK_ENTER) {
+                terminal.println("");
+                //terminal.print(String.format("I %s", sbWord.toString()));
+                //logger.info(String.format("encoding = %s", super.))
+                terminal.print(String.format("I %s", new String(bytes.array(), "UTF-8")));
+                /*sbWord.setLength(0);
+                sbWord.trimToSize();*/
+                // clear byte array
+                bytes.rewind();
+            } else {
+                bytes.put((byte)b);
+                //sb.append((char) b);
+                //terminal.print( Character.toString((char) b));
+            }
+        } catch (UnsupportedEncodingException e) {
+            logger.warning(e.getLocalizedMessage());
         }
     }
 }
