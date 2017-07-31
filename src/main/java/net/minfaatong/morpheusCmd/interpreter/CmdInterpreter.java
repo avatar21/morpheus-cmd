@@ -5,6 +5,7 @@ import net.minfaatong.morpheusCmd.TerminalOutputStream;
 import org.apache.commons.exec.*;
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
@@ -34,6 +35,8 @@ public class CmdInterpreter {
 
         try {
             DefaultExecutor executor = new DefaultExecutor();
+            File workingDir = new File(System.getProperty("user.home"));
+            executor.setWorkingDirectory(workingDir);
             DefaultExecuteResultHandler resultHandler = new DefaultExecuteResultHandler();
             executor.setStreamHandler(new PumpStreamHandler(
                     infoTermOutStream, errorTermOutStream));

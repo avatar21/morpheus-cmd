@@ -23,13 +23,14 @@
 package net.minfaatong.morpheusCmd;
 
 import net.minfaatong.morpheusCmd.interpreter.CmdInterpreter;
+import org.apache.commons.io.IOUtils;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.File;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -47,6 +48,7 @@ public class MorpheusCommander implements KeyListener, FocusListener, MouseListe
     private JList list;
     private DefaultListModel listModel;
     private JButton btnAddFile;
+    private JButton btnRunSelectedFile;
     private static final String TERM = "$ ";
     private static StringBuffer lineBuffer = new StringBuffer();
 
@@ -80,8 +82,11 @@ public class MorpheusCommander implements KeyListener, FocusListener, MouseListe
         final JPanel pnlFile = new JPanel(new BorderLayout());
         btnAddFile = new JButton("Add File");
         btnAddFile.addActionListener(this);
+        btnRunSelectedFile = new JButton("Run");
+        btnRunSelectedFile.addActionListener(this);
         pnlFile.add(btnAddFile, SpringLayout.NORTH);
         pnlFile.add(listScrollPane);
+        pnlFile.add(btnRunSelectedFile, SpringLayout.SOUTH);
 
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             @Override
@@ -275,11 +280,26 @@ public class MorpheusCommander implements KeyListener, FocusListener, MouseListe
 
             if (result == JFileChooser.APPROVE_OPTION) {
                 String filename = fileChooser.getSelectedFile().getPath();
-                JOptionPane.showMessageDialog(null, "You selected " + filename);
+                //JOptionPane.showMessageDialog(null, "You selected " + filename);
+                listModel.addElement(fileChooser.getSelectedFile());
             } else if (result == JFileChooser.CANCEL_OPTION) {
                 JOptionPane.showMessageDialog(null, "You selected nothing.");
             } else if (result == JFileChooser.ERROR_OPTION) {
                 JOptionPane.showMessageDialog(null, "An error occurred.");
+            }
+        } else if (e.getSource() == btnRunSelectedFile) {
+            String fileContent = null;
+
+            try {
+                FileInputStream fis = new FileInputStream((File) list.getSelectedValue());
+
+                byte[] bytes = IOUtils.toByteArray(fis);
+                if (bytes != null) {
+                    fileContent = new String(bytes, "UTF8");
+                }
+                logger.info(String.format("content = %s", fileContent));
+            } catch (IOException e1) {
+                logger.warning(e1.getLocalizedMessage());
             }
         }
     }
